@@ -1,5 +1,38 @@
 let total = 0;
 
+
+class User{
+    constructor(username,password){
+        this.username = username;
+        this.password = password;
+    }
+}
+function login(){
+    alert("Hola! antes de empezar tienes que crear un usuario y contraseña");
+    let username = prompt("Ingresa un nombre de usuario");
+    let password = prompt("Ingresa una contraseña de 8 caracteres");
+    while (password.length < 8){
+        password = prompt("No ingresaste 8 caracteres, intenta otra vez.");
+    }
+
+    const user = new User(username,password);
+    
+    alert("Ahora inicia sesion con tu nuevo usuario")
+    let nameCheck = prompt("Ingresa tu nombre de usuario");
+    while(nameCheck != user.username){
+        alert("Ingresaste incorrectamente el nombre de usuario, intenta otra vez");
+        nameCheck = prompt("Ingresa tu nombre de usuario");
+    }
+    let passwordCheck = prompt("Ingresa tu contraseña");
+    while(passwordCheck != user.password){
+        alert("Ingresaste incorrectamente la contraseña, intenta otra vez");
+        passwordCheck = prompt("Ingresa tu contraseña");
+    }
+    alert("Ingresaste correctamente!");
+
+}
+
+
 function addGame(){
     let nroGames = parseInt(prompt("Cuantos juegos desea comprar?(minimo 1, maximo 20): "));
 
@@ -51,6 +84,7 @@ const menu= ()=> {
 
 function main(){
     alert("Bienvenido a GAMING STORE");
+    login();
     menu();
 }
 
