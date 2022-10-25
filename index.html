@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css" />
-    <title>2da Entrega Proyecto Final</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <title>3era Entrega Proyecto Final</title>
 </head>
 
 <body class="bg">
+    <main>
+        <div class="wrapper">
+            <header>Registrate!</header>
+            <form action="#">
+              <div class="field email">
+                <div class="input-area">
+                  <input type="text" placeholder="Email Address" id="email">
+                  <i class="icon fas fa-envelope"></i>
+                  <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+                <div class="error error-txt">El email no puede estar vacio</div>
+              </div>
+              <div class="field password">
+                <div class="input-area">
+                  <input type="password" placeholder="Password" id="pass">
+                  <i class="icon fas fa-lock"></i>
+                  <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+                <div class="error error-txt">La contraseña no puede estar vacia</div>
+              </div>
+              <div class="pass-txt"><a href="#">Olvidaste tu contraseña?</a></div>
+              <input type="submit" value="Login">
+            </form>
+          </div>
+      
+      </main>
     <script src="./js/main.js"></script>
 </body>
+
 </html>
