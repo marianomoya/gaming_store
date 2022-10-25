@@ -13,8 +13,8 @@
 <body class="bg">
     <main>
         <div class="wrapper">
-            <header>Registrate!</header>
-            <form action="#">
+            <form action="#" class="formRegister">
+              <header>Registrate!</header>
               <div class="field email">
                 <div class="input-area">
                   <input type="text" placeholder="Direccion de email" id="email">
@@ -26,6 +26,30 @@
               <div class="field password">
                 <div class="input-area">
                   <input type="password" placeholder="Contraseña" id="pass">
+                  <i class="icon fas fa-lock"></i>
+                  <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+                <div class="error error-txt">La contraseña no puede estar vacia</div>
+              </div>
+              <div class="pass-txt"><a href="#">Olvidaste tu contraseña?</a></div>
+              <input type="submit" value="Login">
+            </form>
+          </div>
+
+          <div class="wrapper">
+            <form action="#" class="formLogin hiddenContent">
+              <header>Logueate!</header>
+              <div class="field email">
+                <div class="input-area">
+                  <input type="text" placeholder="Direccion de email" id="emailL">
+                  <i class="icon fas fa-envelope"></i>
+                  <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+                <div class="error error-txt">El email no puede estar vacio</div>
+              </div>
+              <div class="field password">
+                <div class="input-area">
+                  <input type="password" placeholder="Contraseña" id="passl">
                   <i class="icon fas fa-lock"></i>
                   <i class="error error-icon fas fa-exclamation-circle"></i>
                 </div>

@@ -170,3 +170,7 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
     background: #2c52ed;
 }
+
+.hiddenContent{
+    display: none;
+}

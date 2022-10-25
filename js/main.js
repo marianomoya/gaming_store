@@ -8,60 +8,86 @@ class User {
     }
 }
 
-const form = document.querySelector("form");
-eField = form.querySelector(".email"),
-    eInput = eField.querySelector("input"),
-    pField = form.querySelector(".password"),
-    pInput = pField.querySelector("input");
+const formRegister = document.querySelector(".formRegister");
+const formLogin = document.querySelector(".formLogin");
+eFieldR = formRegister.querySelector(".email"),
+eInputR = eFieldR.querySelector("input"),
+pFieldR = formRegister.querySelector(".password"),
+pInputR = pFieldR.querySelector("input");
+
+eFieldL = formLogin.querySelector(".email"),
+eInputL = eFieldL.querySelector("input"),
+pFieldL = formLogin.querySelector(".password"),
+pInputL = pFieldL.querySelector("input");
+
+function login() {
+    const emailCheck = eInputL.value;
+    const passCheck = pInputL.value;
+    const emailLocal = JSON.parse(localStorage.getItem("userEmail"));
+    const passLocal = JSON.parse(localStorage.getItem("userPass"));
+
+    formLogin.onsubmit = (e) => {
+        if (emailCheck == emailLocal && passCheck == passLocal) {
+            e.preventDefault();
+            formLogin.classList.add("hiddenContent");
+        }
+
+    }
+}
+
+
 
 function register() {
-    form.onsubmit = (e) => {
+    formRegister.onsubmit = (e) => {
         e.preventDefault();
         //si el campo email y contraseña esta vacio se produce la animacion del shake y aparece el texto de error
-        (eInput.value == "") ? eField.classList.add("shake", "error"): checkEmail();
-        (pInput.value == "") ? pField.classList.add("shake", "error"): checkPass();
+        (eInputR.value == "") ? eFieldR.classList.add("shake", "error"): checkEmail();
+        (pInputR.value == "") ? pFieldR.classList.add("shake", "error"): checkPass();
         setTimeout(() => { //elimina la clase shake despues de 500ms
-            eField.classList.remove("shake");
-            pField.classList.remove("shake");
+            eFieldR.classList.remove("shake");
+            pFieldR.classList.remove("shake");
         }, 500);
-        eInput.onkeyup = () => {
+        eInputR.onkeyup = () => {
             checkEmail();
         } //llama a la funcion checkEmail despues del evento keyup
-        pInput.onkeyup = () => {
+        pInputR.onkeyup = () => {
             checkPass();
         } //llama a la funcion checkPass despues del evento keyup
 
         function checkEmail() {
             let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; //expresion regular para validar el email
-            if (!eInput.value.match(pattern)) { //si no coincide agrega la clase error y le saca la clase valid
-                eField.classList.add("error");
-                eField.classList.remove("valid");
-                let errorTxt = eField.querySelector(".error-txt");
+            if (!eInputR.value.match(pattern)) { //si no coincide agrega la clase error y le saca la clase valid
+                eFieldR.classList.add("error");
+                eFieldR.classList.remove("valid");
+                let errorTxt = eFieldR.querySelector(".error-txt");
                 //Si el email no esta vacio muestra "ingresa una direccion de correo valida" sino muestra "el email no puede estar vacio"
-                (eInput.value != "") ? errorTxt.innerText = "Ingresa una direccion de correo valida": errorTxt.innerText = "El email no puede estar vacio";
+                (eInputR.value != "") ? errorTxt.innerText = "Ingresa una direccion de correo valida": errorTxt.innerText = "El email no puede estar vacio";
             } else { // Si el email coincide con la expresion regular le saca la clase error y le agrega la clase valid
-                eField.classList.remove("error");
-                eField.classList.add("valid");
-                localStorage.setItem("userEmail", JSON.stringify(eInput.value));
+                eFieldR.classList.remove("error");
+                eFieldR.classList.add("valid");
+                localStorage.setItem("userEmail", JSON.stringify(eInputR.value));
             }
         }
 
         function checkPass() {
-            if (pInput.value == "") { //si la contraseña esta vacia agrega la clase error y saca la clase valid
-                pField.classList.add("error");
-                pField.classList.remove("valid");
+            if (pInputR.value == "") { //si la contraseña esta vacia agrega la clase error y saca la clase valid
+                pFieldR.classList.add("error");
+                pFieldR.classList.remove("valid");
             } else { // si no esta vacio entonces pone la clase valid y saca la clase error
-                pField.classList.remove("error");
-                pField.classList.add("valid");
-                localStorage.setItem("userPass", JSON.stringify(pInput.value));
+                pFieldR.classList.remove("error");
+                pFieldR.classList.add("valid");
+                localStorage.setItem("userPass", JSON.stringify(pInputR.value));
             }
         }
         //si el campo del email y el de la contraseña no tienen errores entonces el usuario relleno los datos apropiadamente
-        /* if (!eField.classList.contains("error") && !pField.classList.contains("error")) {
-            
-        } */
+        if (!eFieldR.classList.contains("error") && !pFieldR.classList.contains("error")) {
+            formRegister.classList.add("hiddenContent");
+            formLogin.classList.remove("hiddenContent");
+            login();
+        }
     }
 }
+
 
 function selectGenre(genre) {
     if (genre == 0) {
@@ -148,7 +174,7 @@ const menu = () => {
 }
 
 
-function main() {   //llama a todas las funciones 
+function main() { //llama a todas las funciones 
     register();
     //login();
     //menu(); 
