@@ -57,9 +57,9 @@ function register() {
             }
         }
         //si el campo del email y el de la contraseña no tienen errores entonces el usuario relleno los datos apropiadamente
-        if (!eField.classList.contains("error") && !pField.classList.contains("error")) {
-            window.location.href = form.getAttribute("action"); //redirecting user to the specified url which is inside action attribute of form tag
-        }
+        /* if (!eField.classList.contains("error") && !pField.classList.contains("error")) {
+            
+        } */
     }
 }
 
