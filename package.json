@@ -1,0 +1,19 @@
+{
+  "name": "gaming_store__moya_mariano",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marianomoya/gaming_store.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marianomoya/gaming_store/issues"
+  },
+  "homepage": "https://github.com/marianomoya/gaming_store#readme"
+}
