@@ -1,15 +1,16 @@
 let total = 0;
 const gamesArray = [];
 
-class User {
+/* class User {
     constructor(email, password) {
         this.email = email;
         this.password = password;
     }
-}
+} */
 
 const formRegister = document.querySelector(".formRegister");
 const formLogin = document.querySelector(".formLogin");
+const cart = document.querySelector(".cart");
 eFieldR = formRegister.querySelector(".email"),
 eInputR = eFieldR.querySelector("input"),
 pFieldR = formRegister.querySelector(".password"),
@@ -21,15 +22,16 @@ pFieldL = formLogin.querySelector(".password"),
 pInputL = pFieldL.querySelector("input");
 
 function login() {
-    const emailCheck = eInputL.value;
-    const passCheck = pInputL.value;
+    const emailCheck = eInputL;
+    const passCheck = pInputL;
     const emailLocal = JSON.parse(localStorage.getItem("userEmail"));
     const passLocal = JSON.parse(localStorage.getItem("userPass"));
 
     formLogin.onsubmit = (e) => {
-        if (emailCheck == emailLocal && passCheck == passLocal) {
+        if (emailCheck.value == emailLocal && passCheck.value == passLocal) {
             e.preventDefault();
             formLogin.classList.add("hiddenContent");
+            cart.classList.remove("hiddenContent");
         }
 
     }
@@ -83,6 +85,7 @@ function register() {
         if (!eFieldR.classList.contains("error") && !pFieldR.classList.contains("error")) {
             formRegister.classList.add("hiddenContent");
             formLogin.classList.remove("hiddenContent");
+            Swal.fire('Te registraste correctamente!','','success');
             login();
         }
     }
